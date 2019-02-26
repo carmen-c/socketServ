@@ -4,6 +4,12 @@ const app = express();
 //process.env.PORT is what you are assigned
 const port = process.env.PORT || 8800;
 
+app.all("/", function(req, res, next){
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 //in server package.json
 //add "start": "node index.js" in scripts
 //if you have more than one "start": "node index.js; blahh blah blah"
